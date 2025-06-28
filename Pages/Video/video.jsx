@@ -16,7 +16,7 @@ const video = () => {
   const {id}=useParams();
   
   const fetchVideoById= async()=>{
-    await axios.get(`http://localhost:4000/api/getVideoById/${id}`)
+    await axios.get(`${import.meta.env.VITE_API_URL}/api/getVideoById/${id}`)
     .then((response)=>{
       // console.log(response.data.video);
       setData(response.data.video)
@@ -26,7 +26,7 @@ const video = () => {
     })
   }
   const getCommentByVideoId= async()=>{
-    await axios.get(`http://localhost:4000/commentApi/comment/${id}`)
+    await axios.get(`${import.meta.env.VITE_API_URL}/commentApi/comment/${id}`)
     .then((response)=>{
       console.log(response)
       setComments(response?.data?.comments)
@@ -36,7 +36,7 @@ const video = () => {
   }
   const uploadComment=async()=>{
     const body={'video':id,'message':message}
-    await axios.post('http://localhost:4000/commentApi/comment',body,{withCredentials:true})
+    await axios.post('${import.meta.env.VITE_API_URL}/commentApi/comment',body,{withCredentials:true})
     .then((res)=>{
       setMessage('')
       toast.success("commented")

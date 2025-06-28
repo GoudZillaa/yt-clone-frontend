@@ -8,7 +8,7 @@ const HomePage = ({ sideNavbar }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/allVideo")
+      .get(`${import.meta.env.VITE_API_URL}/api/allVideo`)
       .then((res) => {
         console.log(res.data.videos);
         setData(res.data.videos);

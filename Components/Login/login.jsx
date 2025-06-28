@@ -16,7 +16,7 @@ const login = ({closeModel}) => {
   }
   const handleLogin=async()=>{
     setProgressBar(true);
-    axios.post('http://localhost:4000/auth/logIn',loginField,{withCredentials:true})
+    axios.post(`${import.meta.env.VITE_API_URL}/auth/logIn`,loginField,{withCredentials:true})
     .then((res)=>{
       setProgressBar(false);
       console.log(res);

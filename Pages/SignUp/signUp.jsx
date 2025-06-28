@@ -9,6 +9,7 @@ import { toast, ToastContainer } from "react-toastify";
 import Box from "@mui/material/Box";
 import LinearProgress from "@mui/material/LinearProgress";
 
+
 const signUp = () => {
   const [userPic, setUserPic] = useState(user);
   const [signUpField, setSignUpField] = useState({ channelName: "", userName: "", password: "", about: "", profilePic: userPic });
@@ -40,7 +41,7 @@ const signUp = () => {
   const handleSignUp = async () => {
     setProgressBar(true)
     axios
-      .post("http://localhost:4000/auth/signUp", signUpField)
+      .post(`${import.meta.env.VITE_API_URL}/auth/signUp`, signUpField)
       .then((res) => {
         toast.success(res.data.message)
         setProgressBar(false)
