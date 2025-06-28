@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "./signUp.css";
+import "./signUP.css";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Link,useNavigate } from "react-router-dom";
 import user from "../../src/assets/user.png";
