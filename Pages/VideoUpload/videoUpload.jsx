@@ -33,7 +33,7 @@ const videoUpload = () => {
     }
     const handleUpload=async()=>{
       console.log(inputField)
-      await axios.post('http://localhost:4000/api/video',inputField,{withCredentials:true})
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/video`,inputField,{withCredentials:true})
       .then((res)=>{
         console.log(res);
         navigate('/');
