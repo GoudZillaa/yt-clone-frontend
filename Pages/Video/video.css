@@ -1,0 +1,226 @@
+.video{
+    margin-top:56px;
+    display: flex;
+    padding: 30px 0;
+    justify-content: center;
+    background-color: black;
+    color:white;
+    gap:10px;
+}
+.videoPostSection{
+    width: 100%;
+    max-width: 875px;
+    display: flex;
+    flex-direction: column;
+}
+.youtubeVideo{
+    width:100%;
+
+}
+.videoPlayer{
+    width: 100%;
+}
+.videoDetails{
+    display: flex;
+    flex-direction: column;
+}
+.videoTitle{
+    font-size: 20px;
+    font-weight: 700;
+}
+.youtube_video_ProfileBlock{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.youtube_video_ProfileBlock_left{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.youtube_video_ProfileBlock_left_img{
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+.youtube_video_ProfileBlock_left_image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.youtubePostProfileDate{
+    font-size: 14px;
+    color:#aaaaaa;
+}
+.subscribeBtn{
+    background-color:white;
+    color:black;
+    padding: 0px 16px;
+    border-radius: 18px;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height:36px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+}
+.youtube_likeBlock{
+    display: flex;
+    gap: 10px;
+    background-color: #a5a5a538;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    border-radius: 18px;
+}
+.youtube_likeBlock_like{
+    display:flex;
+    gap:10px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.numberOfLike{
+    font-weight: 500;
+}
+.likeDivider{
+    width: 0px;
+    height: 20px;
+    border: 1px solid;
+}
+.videoAbout{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color:#a5a5a538;
+    width: 100%;
+    border-radius: 10px;
+    padding:12px;
+    font-weight: 500;
+    font-size: 14px;
+    gap: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+.youtube_commentSection{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.youtube_commentSection_title{
+    font-size: 20px;
+    font-weight: 500;
+}
+.youtubeSelfComment{
+    display: flex;
+    margin-top: 10px;
+    gap: 10px;
+}
+.youtubeSelfCommentImg{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+.addComment{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+}
+.addAcommentInput{
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: none;
+    height:35px;
+    font-size: 14px;
+    border-bottom: 1px solid grey;
+    &:focus{
+        outline:none;
+    }
+    &::placeholder{
+        font-size: 16px;
+    }
+}
+.submitBtns{
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 10px;
+}
+.cancelComment{
+    padding: 8px 16px; 
+    border-radius: 18px;
+    border: 1px solid;
+    cursor: pointer;
+    &:hover{
+    background-color:white;
+    color: black;
+    }
+}
+.youtubeOthersComments{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+.others_commentsection{
+    display: flex;
+    flex-direction: column;
+}
+.others_commentsectionHeader{
+    display:flex;
+    gap:10px;
+}
+.channelName_comment{
+    font-size:14px;
+    font-weight: 500;
+}
+.commentDate{
+    color:grey;
+    font-size: 12px;
+    font-weight: 500;
+}
+.actualComment{
+    margin-top:10px;
+}
+
+
+/* -----------------------video Player ends here----------------------------------------------- */
+
+.videoSuggestions{
+    color:white;
+    width: 100%;
+    max-width: 406px;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.videoSuggestionsBlock{
+    display:flex;
+    gap:15px;
+    cursor: pointer;
+}
+.videoSuggestionThumbnail{
+    width:168px;
+    height:94px;
+}
+.videoThumbnail{
+    width:inherit;
+    height:inherit;
+    border-radius: 5px;
+}
+.videoSuggestionsAbout{
+    display:flex;
+    flex-direction: column;
+    gap:3px;
+}
+.suggestionsTitle{
+    font-size:15px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.non-focus{
+    font-size:14px;
+    color:grey;
+}
