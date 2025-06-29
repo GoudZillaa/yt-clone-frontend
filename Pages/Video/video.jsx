@@ -13,6 +13,7 @@ const video = () => {
   const [data,setData]=useState(null)
   const [videoUrl,setVideoUrl]=useState('')
   const [comments,setComments]=useState([])
+  const [videoData, setVideoData] = useState([]);
   const {id}=useParams();
   
   const fetchVideoById= async()=>{
@@ -47,6 +48,17 @@ const video = () => {
         toast.error('Please Login first to Comment')
       }
     )
+  }
+  getVideoSuggestions= async() => {
+      axios
+        .get(`${import.meta.env.VITE_API_URL}/api/allVideo`)
+        .then((res) => {
+          console.log(res.data.videos);
+          setVideoData(res.data.videos);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
   }
   useEffect(()=>{
     fetchVideoById();
@@ -148,82 +160,21 @@ const video = () => {
 
       <div className="videoSuggestions">
 
-        <div className="videoSuggestionsBlock">
-          <div className="videoSuggestionThumbnail">
-            <img src="https://i.ytimg.com/vi/9Zj4Y4K5Z9s/maxresdefault.jpg" alt="" className="videoThumbnail" />
-          </div>
-          <div className="videoSuggestionsAbout">
-            <div className="suggestionsTitle">Learn to code with the greatest programer!</div>
-            <div className="suggestionsChannelName non-focus">best coder</div>
-            <div className="suggestionsViewsUploadTime non-focus">1.5k views . 1 day ago</div>
-          </div>
-        </div>
-
-        <div className="videoSuggestionsBlock">
-          <div className="videoSuggestionThumbnail">
-            <img src="https://i.ytimg.com/vi/9Zj4Y4K5Z9s/maxresdefault.jpg" alt="" className="videoThumbnail" />
-          </div>
-          <div className="videoSuggestionsAbout">
-            <div className="suggestionsTitle">Learn to code with the greatest programer!</div>
-            <div className="suggestionsChannelName non-focus">best coder</div>
-            <div className="suggestionsViewsUploadTime non-focus">1.5k views . 1 day ago</div>
-          </div>
-        </div>
-
-        <div className="videoSuggestionsBlock">
-          <div className="videoSuggestionThumbnail">
-            <img src="https://i.ytimg.com/vi/9Zj4Y4K5Z9s/maxresdefault.jpg" alt="" className="videoThumbnail" />
-          </div>
-          <div className="videoSuggestionsAbout">
-            <div className="suggestionsTitle">Learn to code with the greatest programer!</div>
-            <div className="suggestionsChannelName non-focus">best coder</div>
-            <div className="suggestionsViewsUploadTime non-focus">1.5k views . 1 day ago</div>
-          </div>
-        </div>
-
-        <div className="videoSuggestionsBlock">
-          <div className="videoSuggestionThumbnail">
-            <img src="https://i.ytimg.com/vi/9Zj4Y4K5Z9s/maxresdefault.jpg" alt="" className="videoThumbnail" />
-          </div>
-          <div className="videoSuggestionsAbout">
-            <div className="suggestionsTitle">Learn to code with the greatest programer!</div>
-            <div className="suggestionsChannelName non-focus">best coder</div>
-            <div className="suggestionsViewsUploadTime non-focus">1.5k views . 1 day ago</div>
-          </div>
-        </div>
-
-        <div className="videoSuggestionsBlock">
-          <div className="videoSuggestionThumbnail">
-            <img src="https://i.ytimg.com/vi/9Zj4Y4K5Z9s/maxresdefault.jpg" alt="" className="videoThumbnail" />
-          </div>
-          <div className="videoSuggestionsAbout">
-            <div className="suggestionsTitle">Learn to code with the greatest programer!</div>
-            <div className="suggestionsChannelName non-focus">best coder</div>
-            <div className="suggestionsViewsUploadTime non-focus">1.5k views . 1 day ago</div>
-          </div>
-        </div>
-
-        <div className="videoSuggestionsBlock">
-          <div className="videoSuggestionThumbnail">
-            <img src="https://i.ytimg.com/vi/9Zj4Y4K5Z9s/maxresdefault.jpg" alt="" className="videoThumbnail" />
-          </div>
-          <div className="videoSuggestionsAbout">
-            <div className="suggestionsTitle">Learn to code with the greatest programer!</div>
-            <div className="suggestionsChannelName non-focus">best coder</div>
-            <div className="suggestionsViewsUploadTime non-focus">1.5k views . 1 day ago</div>
-          </div>
-        </div>
-
-        <div className="videoSuggestionsBlock">
-          <div className="videoSuggestionThumbnail">
-            <img src="https://i.ytimg.com/vi/9Zj4Y4K5Z9s/maxresdefault.jpg" alt="" className="videoThumbnail" />
-          </div>
-          <div className="videoSuggestionsAbout">
-            <div className="suggestionsTitle">Learn to code with the greatest programer!</div>
-            <div className="suggestionsChannelName non-focus">best coder</div>
-            <div className="suggestionsViewsUploadTime non-focus">1.5k views . 1 day ago</div>
-          </div>
-        </div>
+        {videoData?.map((item,ind)=>{
+          return(
+            <div className="videoSuggestionsBlock">
+              <div className="videoSuggestionThumbnail">
+                <img src={item?.thumbnail} alt="" className="videoThumbnail" />
+              </div>
+              <div className="videoSuggestionsAbout">
+                <div className="suggestionsTitle">{item?.title}</div>
+                <div className="suggestionsChannelName non-focus">{item?.user.channelName}</div>
+                <div className="suggestionsViewsUploadTime non-focus">{item?.createdAt.slice(0,10)}</div>
+              </div>
+            </div>
+          )
+        })}
+        
 
       </div>
       <ToastContainer/>

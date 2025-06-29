@@ -12,7 +12,7 @@ const profile = ({sideNavbar}) => {
   const [user,setUser]=useState(null)
 
   const fetchProfileData=async()=>{
-    await axios.get(`http://localhost:4000/api/${id}/channel`)
+    await axios.get(`${import.meta.env.VITE_API_URL}/api/${id}/channel`)
     .then((response)=>{
       setData(response?.data?.video)
       console.log(response?.data?.video)
