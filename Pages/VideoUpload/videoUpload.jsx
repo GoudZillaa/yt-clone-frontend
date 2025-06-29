@@ -33,7 +33,12 @@ const videoUpload = () => {
     }
     const handleUpload=async()=>{
       console.log(inputField)
-      await axios.post(`${import.meta.env.VITE_API_URL}/api/video`,inputField,{withCredentials:true})
+      const token = localStorage.getItem("token");
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/video`,inputField,{
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        withCredentials:true})
       .then((res)=>{
         console.log(res);
         navigate('/');

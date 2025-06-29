@@ -40,7 +40,7 @@ const login = ({closeModel}) => {
           <YouTubeIcon sx={{fontSize:'54px' , color: 'red'}} />Login
         </div>
         <div className="login_credentials">
-            <input type="email" placeholder='Username' value={loginField.userName} onChange={(e)=>handleOnChange(e,'userName')} className="loginFormInput" />
+            <input type="text" placeholder='Username' value={loginField.userName} onChange={(e)=>handleOnChange(e,'userName')} className="loginFormInput" />
             <input type="password" placeholder='Password' value={loginField.password} onChange={(e)=>handleOnChange(e,'password')} className="loginFormInput" />
         </div>
         <div className="loginBtns">
