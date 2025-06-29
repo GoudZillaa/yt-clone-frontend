@@ -200,6 +200,8 @@
     display:flex;
     gap:15px;
     cursor: pointer;
+    text-decoration: none;
+    color: white;
 }
 .videoSuggestionThumbnail{
     width:168px;
