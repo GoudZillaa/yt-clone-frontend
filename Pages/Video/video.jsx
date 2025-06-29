@@ -37,7 +37,7 @@ const video = () => {
   }
   const uploadComment=async()=>{
     const body={'video':id,'message':message}
-    await axios.post('${import.meta.env.VITE_API_URL}/commentApi/comment',body,{withCredentials:true})
+    await axios.post(`${import.meta.env.VITE_API_URL}/commentApi/comment`,body,{withCredentials:true})
     .then((res)=>{
       setMessage('')
       toast.success("commented")
@@ -49,7 +49,7 @@ const video = () => {
       }
     )
   }
-  getVideoSuggestions= async() => {
+  const getVideoSuggestions= async() => {
       axios
         .get(`${import.meta.env.VITE_API_URL}/api/allVideo`)
         .then((res) => {
@@ -63,6 +63,7 @@ const video = () => {
   useEffect(()=>{
     fetchVideoById();
     getCommentByVideoId();
+    getVideoSuggestions();
   },[])
   const handleOnChange=(event,name)=>{
     setMessage(event.target.value)
