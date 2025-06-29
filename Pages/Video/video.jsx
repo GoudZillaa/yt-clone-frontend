@@ -163,7 +163,7 @@ const video = () => {
 
         {videoData?.map((item,ind)=>{
           return(
-            <div className="videoSuggestionsBlock">
+            <Link to={`/watch/${item._id}`} className="videoSuggestionsBlock">
               <div className="videoSuggestionThumbnail">
                 <img src={item?.thumbnail} alt="" className="videoThumbnail" />
               </div>
@@ -172,7 +172,7 @@ const video = () => {
                 <div className="suggestionsChannelName non-focus">{item?.user.channelName}</div>
                 <div className="suggestionsViewsUploadTime non-focus">{item?.createdAt.slice(0,10)}</div>
               </div>
-            </div>
+            </Link>
           )
         })}
         

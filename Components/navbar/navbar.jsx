@@ -42,7 +42,9 @@ const Navbar = ({setSideNavbarFunc,sideNavbar}) => {
     }
   }
   const logoutApi=async()=>{
-    axios.post(`${import.meta.env.VITE_API_URL}/auth/logout`)
+    axios.post(`${import.meta.env.VITE_API_URL}/auth/logout`,{}, {
+      withCredentials: true, 
+    })
     .then((res)=>{
       console.log(res);
       window.location.reload();
