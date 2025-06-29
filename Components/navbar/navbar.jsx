@@ -50,7 +50,16 @@ const Navbar = ({setSideNavbarFunc,sideNavbar}) => {
       window.location.reload();
     }).catch(err=>console.log(err));
   }
+  const testAuth = async () => {
+    try {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/commentApi/test-auth`, {withCredentials: true});
+        console.log('Auth test success:', response.data);
+    } catch (error) {
+        console.log('Auth test failed:', error.response?.data);
+    }
+  };
   useEffect(()=>{
+    testAuth();
     const profilePic=localStorage.getItem("userProfilePic");
     console.log(profilePic)
     setIsLoggedIn(localStorage.getItem("userId")!==null?true:false);
