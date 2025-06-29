@@ -127,7 +127,7 @@ const video = () => {
               <div className="addComment">
                 <input type="text" value={message} onChange={(e)=>handleOnChange(e)} placeholder='Add a comment' className="addAcommentInput" />
                 <div className="submitBtns">
-                  <div className="cancelComment">Cancel</div>
+                  <div className="cancelComment" onClick={()=>setMessage('')}>Cancel</div>
                   <div className="cancelComment" onClick={uploadComment} >Comment</div>
                 </div>
               </div>

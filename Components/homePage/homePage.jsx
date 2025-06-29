@@ -11,7 +11,7 @@ const HomePage = ({ sideNavbar }) => {
       .get(`${import.meta.env.VITE_API_URL}/api/allVideo`)
       .then((res) => {
         console.log(res.data.videos);
-        console.log("v-0.1.1")
+        console.log("v-0.2.0")
         setData(res.data.videos);
       })
       .catch((err) => {

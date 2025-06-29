@@ -14,10 +14,11 @@
 }
 .uploadBox{
     width: 45%;
-    border-radius: 5px;
+    border-radius: 18px;
     margin-top: 20px;
     box-shadow: 0.5px 0.5px 8px white;
     padding:25px;
+    background-color: rgb(32, 32, 32);
 }
 .uploadVideoTitle{
     display: flex;

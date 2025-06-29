@@ -11,13 +11,17 @@ import SlideshowIcon from '@mui/icons-material/Slideshow';
 import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import ContentCutOutlinedIcon from '@mui/icons-material/ContentCutOutlined';
+import {Link,useNavigate} from 'react-router-dom';
+
 
 const SideNavbar = ({sideNavbar}) => {
+    const navigate=useNavigate();
+    
   return (
     <div className={sideNavbar?"home-sideNavbar":"home-sideNavbar-hidden"}>
         <div className="home_sideNavbarTop">
 
-            <div className={`home_sideNavbarTopOption`}>
+            <div className={`home_sideNavbarTopOption`} onClick={()=>navigate('/')}>
                 <HomeIcon sx={{color:'white'}}/>
                 <div className="home_sideNavbarTopOptionTitle">Home</div>
             </div>
@@ -41,7 +45,7 @@ const SideNavbar = ({sideNavbar}) => {
                 <ChevronRightIcon sx={{color:'white'}}/>
             </div>
 
-            <div className={`home_sideNavbarTopOption`}>
+            <div className={`home_sideNavbarTopOption`} onClick={()=>navigate(`/user/${localStorage.getItem('userId')}`)}>
                 <RecentActorsIcon sx={{color:'white'}}/>
                 <div className="home_sideNavbarTopOptionTitle">Your Channel</div>                
             </div>
@@ -56,7 +60,7 @@ const SideNavbar = ({sideNavbar}) => {
                 <div className="home_sideNavbarTopOptionTitle">Playlists</div>                
             </div>
 
-            <div className={`home_sideNavbarTopOption`}>
+            <div className={`home_sideNavbarTopOption`} onClick={()=>navigate(`/user/${localStorage.getItem('userId')}`)}>
                 <SlideshowIcon sx={{color:'white'}}/>
                 <div className="home_sideNavbarTopOptionTitle">Your videos</div>                
             </div>
