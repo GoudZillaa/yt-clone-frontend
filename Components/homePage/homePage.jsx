@@ -2,19 +2,25 @@ import React, { useEffect, useState } from "react";
 import "./homePage.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Box from "@mui/material/Box";
+import LinearProgress from "@mui/material/LinearProgress";
 
 const HomePage = ({ sideNavbar }) => {
   const [data, setData] = useState([]);
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
+    setLoader(true);
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/allVideo`)
       .then((res) => {
         console.log(res.data.videos);
-        console.log("v-0.2.0")
+        console.log("v-0.2.0");
+        setLoader(false);
         setData(res.data.videos);
       })
       .catch((err) => {
+        setLoader(false);
         console.log(err);
       });
   }, []);
@@ -47,6 +53,7 @@ const HomePage = ({ sideNavbar }) => {
   return (
     <div className={sideNavbar ? "homePage" : "fullHomePage"}>
       <div className="homePage_options">
+        
         {options.map((item, index) => {
           return (
             <div key={index} className="homepage_option">
@@ -55,6 +62,11 @@ const HomePage = ({ sideNavbar }) => {
             </div>
           );
         })}
+        {loader && (
+          <Box sx={{ width: "100%" }}>
+            <LinearProgress />
+          </Box>
+        )}
       </div>
 
       <div className={sideNavbar ? "home_mainPage" : "home_mainPageFull"}>
@@ -62,21 +74,13 @@ const HomePage = ({ sideNavbar }) => {
           return (
             <Link to={`/watch/${item._id}`} className="youtube_video">
               <div className="youtube_thumbnailBox">
-                <img
-                  src={item.thumbnail}
-                  alt="Thumbnail"
-                  className="youtube_thumbnailPic"
-                />
+                <img src={item.thumbnail} alt="Thumbnail" className="youtube_thumbnailPic" />
                 <div className="youtube_thumbnailTiming">28:25</div>
               </div>
 
               <div className="youtubeTitleBox">
                 <div className="youtubeTitleBoxProfile">
-                  <img
-                    src={item.user.profilePic}
-                    alt="Profile"
-                    className="youtubeTitleBoxProfileImg"
-                  />
+                  <img src={item.user.profilePic} alt="Profile" className="youtubeTitleBoxProfileImg" />
                 </div>
 
                 <div className="youtubeTitleBoxInfo">
