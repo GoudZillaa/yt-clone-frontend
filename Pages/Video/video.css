@@ -226,3 +226,11 @@
     font-size:14px;
     color:grey;
 }
+@media (max-width: 768px){
+    .video{
+        height:100dvh;
+    }
+    .videoSuggestions{
+        display: none;
+    }
+}
