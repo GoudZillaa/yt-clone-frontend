@@ -1,61 +1,90 @@
-.home-sideNavbar-hidden{
-    display: none;
+.home-sideNavbar {
+  display: flex;
+  flex-direction: column;
+  flex: 0.16 1;
+  box-sizing: border-box;
+  height: 92vh;
+  overflow-y: auto;
+  position: fixed;
+  top: 55px;
+  left: 0;
+  width: 265px;
+  padding: 14px;
+  background-color: black;
+  color: white;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
 }
 
-.home-sideNavbar{
-    display: flex;
-    flex-direction: column;
-    flex:0.16 1;
-    box-sizing: border-box;
-    height:92vh;
-    overflow-y: auto;
-    position: fixed;
-    top: 55px;
-    left:0;
-    width: 265px;
-    padding: 14px;
-    background-color: black;
-    color:white
+.home-sideNavbar.show {
+  transform: translateX(0);
 }
 
-.home-sideNavbar::-webkit-scrollbar{
-    width:12px;
+.home-sideNavbar.hide {
+  transform: translateX(-100%);
 }
 
-.home_sideNavbarTop{
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid rgb(86, 85, 85);
-    padding-bottom: 10px;
-}
-    
-.home_sideNavbarTopOption{
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    padding: 9px 10px;
-    border-radius: 15px;
-    cursor: pointer;
-    &:hover{
-        background-color: rgb(35, 35, 35);
-    }
+.home-sideNavbar::-webkit-scrollbar {
+  width: 12px;
 }
 
-.home_sideNavbarTopOptionTitle{
-    font-size: 14px;
-    font-weight: 450;
+.home_sideNavbarTop {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(86, 85, 85);
+  padding-bottom: 10px;
 }
-.home_sideNavbarMiddle{
-  display:flex;
+
+.home_sideNavbarTopOption {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 9px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.home_sideNavbarTopOption:hover {
+  background-color: rgb(35, 35, 35);
+}
+
+.home_sideNavbarTopOptionTitle {
+  font-size: 14px;
+  font-weight: 450;
+}
+
+.home_sideNavbarMiddle {
+  display: flex;
   flex-direction: column;
   border-bottom: 1px solid rgb(86, 85, 85);
   padding: 10px 0;
 }
-.home_sideNavbarTopOptionTitleHeader{
+
+.home_sideNavbarTopOptionTitleHeader {
   font-weight: 600;
 }
-.home_sideNavbar_ImgLogo{
+
+.home_sideNavbar_ImgLogo {
   width: 25px;
-  height:25px;
-  border-radius:50%
+  height: 25px;
+  border-radius: 50%;
+}
+.home_sideNavbarHeader{
+    margin-top: -40px;
+    display: none;
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .home-sideNavbar {
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    padding-top: 60px;
+  }
+  .home_sideNavbarHeader{
+    display: block;
+  }
+ 
 }

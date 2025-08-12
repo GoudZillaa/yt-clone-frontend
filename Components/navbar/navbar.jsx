@@ -95,7 +95,7 @@ const Navbar = ({setSideNavbarFunc,sideNavbar}) => {
         <Link to='/1/upload'>
           <VideoCallIcon sx={{color:'white',fontSize:'30px',cursor:'pointer'}}/>
         </Link>
-        <NotificationsIcon sx={{color:'white',fontSize:'30px',cursor:'pointer'}}/>
+        <NotificationsIcon className='bell_icon' sx={{color:'white',fontSize:'30px',cursor:'pointer'}}/>
         <img onClick={handClickModel} src={userPic} alt="user" className='navbar_userPic'/>
 
         {navbarModel && 

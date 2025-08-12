@@ -1,47 +1,53 @@
-.fullHomePage{
-    display: flex;
-    flex-direction: column;
-    flex:1;
-    min-height: 100vh;
-}
-.homePage{
-    display: flex;
-    flex-direction: column;
-    flex:1;
-    margin-left:265px;
-    min-height: 100vh;
-}
-.homePage_options{
-    display: flex;
-    position:fixed;
-    top: 56px;
-    width: 100%;
-    height: auto;
-    z-index: 1;
-    background-color: black;
-    box-sizing: border-box;
-    flex-shrink: 0;
-    overflow-x: scroll;
-    gap:10px;
+.fullHomePage {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
+  padding-top: 10px;
 }
 
-.homePage_options::-webkit-scrollbar{
-    width:12px;
+.homePage {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100vh;
+  margin-left: 265px;
 }
 
-.homepage_option{
-    flex: 0 0 auto;
-    height: 27px;
-    padding: 1px 10px; 
-    background-color: rgb(42, 42,42);
-    color:white;
-    font-weight: 550;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor:pointer;
+.homePage_options {
+  display: flex;
+  position: fixed;
+  top: 56px;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  background-color: black;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 8px;
 }
+
+.homePage_options::-webkit-scrollbar {
+  height: 6px;
+}
+
+.homepage_option {
+  flex: 0 0 auto;
+  height: 27px;
+  padding: 1px 10px;
+  background-color: rgb(42, 42, 42);
+  color: white;
+  font-weight: 550;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
 .home_mainPage{
     display:grid;
     background-color: black;
@@ -60,71 +66,144 @@
     padding:90px 0 20px 10px;
     height:100vh;
 }
-.youtube_video{
-    color:white;
-    text-decoration: none;
+
+/* .home_mainPage,
+.home_mainPageFull {
+  display: grid;
+  background-color: black;
+  box-sizing: border-box;
+  gap: 10px;
+  padding: 90px 10px 20px 10px;
+  height: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+} */
+
+.youtube_video {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  cursor: pointer;
+  height:fit-content
+}
+
+.youtube_thumbnailBox {
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+}
+
+.youtube_thumbnailPic {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.youtube_thumbnailTiming {
+  position: absolute;
+  bottom: 3px;
+  right: 2px;
+  width: auto;
+  padding: 2px 3px;
+  background-color: rgb(42, 42, 42);
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.youtubeTitleBox {
+  display: flex;
+  padding: 10px;
+}
+
+.youtubeTitleBoxProfile {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.youtubeTitleBoxProfileImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.youtubeTitleBoxInfo {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.youtubeTitleBoxTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.youtubeTitleBoxChannel {
+  font-size: 14px;
+  color: rgb(170, 170, 170);
+  margin: 5px 0;
+}
+
+.youtubeTitleBoxLikes {
+  font-size: 12px;
+  color: rgb(170, 170, 170);
+}
+
+/* 📱 Mobile adjustments */
+@media (max-width: 768px) {
+  .homePage {
+    margin-left: 0;
+  }
+  
+  .homePage_options {
+    top: 56px;
+    padding: 6px;
+  }
+
+  .youtube_thumbnailBox {
+    height: auto;
+  }
+
+  .youtubeTitleBoxTitle {
+    font-size: 14px;
+  }
+  .home_mainPageFull{
     display: flex;
-    box-sizing:border-box;
     flex-direction: column;
-    cursor: pointer;
-    height:298px;
-}
-.youtube_thumbnailBox{
-    width: 100%;
-    position:relative;
+    gap:10px
+  }
+  .home_mainPage,
+    .home_mainPageFull {
+    display: grid;
+    background-color: black;
     box-sizing: border-box;
-    height: 198px;
-}
-.youtube_thumbnailPic{
-    width: 100%;
+    gap: 10px;
+    padding: 90px 10px 20px 10px;
     height: 100%;
-    border-radius: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
 }
-.youtube_thumbnailTiming{
-    position:absolute;
-    bottom:3px;
-    right:2px;
-    width:auto;
-    padding:2px 3px;
-    background-color: rgb(42,42,42);
-    border-radius: 5px;
-    font-size: 14px;
-}
-.youtubeTitleBox{
-    display: flex;
-    padding:10px ;
-}
-.youtubeTitleBoxProfile{
-    width:50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.youtubeTitleBoxProfileImg{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-.youtubeTitleBoxInfo{
-    width:100%;
-    padding: 5px;
+
+@media (max-width: 480px) {
+  .youtube_thumbnailBox {
+    height: auto;
+  }
+
+  .youtubeTitleBox {
+    padding: 8px;
+  }
+
+  .home_mainPageFull{
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
+    gap:10px
+  }
 }
-.youtubeTitleBoxTitle{
-    font-size: 16px;
-    font-weight: 600;
-}
-.youtubeTitleBoxChannel{
-    font-size: 18px;
-    color:rgb(170,170,170);
-    margin: 5px 0;
-}
-.youtubeTitleBoxLikes{
-    font-size: 14px;
-    color:rgb(170,170,170);
-}
-    

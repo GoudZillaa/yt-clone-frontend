@@ -65,3 +65,8 @@
         color: black;
     }
 }
+@media (max-width: 768px){
+    .uploadBox{
+        width:95%;
+    }
+}

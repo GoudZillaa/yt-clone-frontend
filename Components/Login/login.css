@@ -11,6 +11,7 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    margin-left:-10px
 }
 .login_card{
     width:40%;
@@ -69,5 +70,14 @@
     &:hover{
         background-color: white;
         color: black;
+    }
+}
+
+@media (max-width: 768px){
+    .login{
+        width:100dvw;
+    }
+    .login_card{
+        width:fit-content;
     }
 }

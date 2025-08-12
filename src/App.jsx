@@ -10,7 +10,8 @@ import SignUp from '../Pages/SignUp/signUp'
 import axios from 'axios'
 
 function App() {
-  const [sideNavbar,setSideNavbar]=useState(true)
+  const [sideNavbar, setSideNavbar] = useState(window.innerWidth > 768);
+
 
   // useEffect(()=>{
   //   axios.get('http://localhost:4000/api/allVideo').then(res=>{
@@ -27,7 +28,7 @@ function App() {
     <div className='App'>
       <Navbar setSideNavbarFunc={setSideNavbarFunc} sideNavbar={sideNavbar}/>
       <Routes>
-        <Route path='/' element={<Home sideNavbar={sideNavbar}/>}/>
+        <Route path='/' element={<Home sideNavbar={sideNavbar} setSideNavbarFunc={setSideNavbarFunc}/>}/>
         <Route path='/watch/:id' element={<Video />}/>
         <Route path='/user/:id' element={<Profile sideNavbar={sideNavbar}/>}/>
         <Route path='/:id/upload/' element={<VideoUpload />}/>
